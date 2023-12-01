@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Style for the cookie alert box */
+        #cookie-alert {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        #cookie-alert button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        // Check if the user has already accepted the cookie
+        function checkCookie() {
+            if (localStorage.getItem("cookieAccepted") !== "true") {
+                // Show the cookie alert
+                document.getElementById("cookie-alert").style.display = "block";
+            }
+        }
+
+        // Set a cookie to remember that the user has accepted
+        function acceptCookie() {
+            localStorage.setItem("cookieAccepted", "true");
+            // Hide the cookie alert
+            document.getElementById("cookie-alert").style.display = "none";
+        }
+    </script>
+</head>
+<body onload="checkCookie()">
+
+    <!-- Cookie Alert Box -->
+    <div id="cookie-alert">
+        <p>This website uses cookies to ensure you get the best experience on our website.</p>
+        <button onclick="acceptCookie()">Got it!</button>
+    </div>
+
+    <!-- Your website content goes here -->
+
+</body>
+</html>
